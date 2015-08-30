@@ -23,8 +23,15 @@ $ npm install autoupdater --save
 ```js
 const update = require('autoupdater');
 
+// load package.json of the package
+// you want to be auto-updated
 let pkg = require('path/to/package.json');
 
+
+// execute autoupdater
+// it checks for latest version on npm
+// and if there's a newer one
+// it executes `npm install` in background
 update(pkg);
 ```
 
