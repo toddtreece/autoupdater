@@ -1,0 +1,33 @@
+{
+  "name": "autoupdater",
+  "version": "1.0.0",
+  "description": "Make your module auto-update itself",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vdemedes/autoupdater.git"
+  },
+  "keywords": [
+    "auto-update",
+    "update",
+    "cli"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vdemedes/autoupdater/issues"
+  },
+  "homepage": "https://github.com/vdemedes/autoupdater#readme",
+  "author": "Vadim Demedes <vdemedes@gmail.com>",
+  "devDependencies": {
+    "make-lint": "^1.0.1"
+  },
+  "dependencies": {
+    "update-notifier": "^0.5.0"
+  },
+  "files": [
+    "index.js"
+  ]
+}
