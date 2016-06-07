@@ -1,6 +1,7 @@
 The MIT License (MIT)
 
 Copyright (c) Vadym Demedes <vdemedes@gmail.com> (vadimdemedes.com)
+Modified Work (c) Todd Treece <todd@uniontownlabs.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

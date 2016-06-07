@@ -1,47 +1,68 @@
 'use strict';
 
-/**
- * Dependencies
- */
+const UpdateNotifier = require('update-notifier'),
+      EventEmitter = require('events'),
+      spawn = require('child_process').spawn;
 
-var updateNotifier = require('update-notifier');
-var spawn = require('child_process').spawn;
+class AutoUpdate extends EventEmitter {
 
+  constructor(pkg) {
 
-/**
- * Expose autoupdater
- */
+    super();
 
-module.exports = autoupdater;
+    this.pkg = pkg;
+    this.updating = false;
 
+    this.notifier = UpdateNotifier({
+      pkg: pkg,
+      callback: (err, info) => this.onCheck(err, info)
+    });
 
-/**
- * Autoupdater
- */
+  }
 
-function autoupdater (pkg) {
-  var notifier = updateNotifier({
-    pkg: pkg
-  });
+  onCheck(err, info) {
 
-  if (notifier.update) {
-    var options = {
+    if(err)
+      return this.emit('error', err);
+
+    if(info.type != 'latest')
+      this.update();
+    else
+      this.emit('finish');
+
+  }
+
+  update() {
+
+    this.updating = true;
+    this.emit('update');
+
+    const options = {
       env: process.env
     };
 
-    var args = [
+    const args = [
       'install',
       '--global',
-      pkg.name
+      this.pkg.name
     ];
 
-    spawn('npm', args, options, noop).unref();
+    const npm = spawn(
+      'npm',
+      args,
+      options,
+      this.onUpdate.bind(this)
+    );
+
   }
+
+  onUpdate() {
+
+    this.updating = false;
+    this.emit('finish');
+
+  }
+
 }
 
-
-/**
- * Utilities
- */
-
-function noop () {}
+exports = module.exports = AutoUpdate;

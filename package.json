@@ -1,6 +1,6 @@
 {
-  "name": "autoupdater",
-  "version": "1.0.0",
+  "name": "cli-autoupdate",
+  "version": "2.0.0",
   "description": "Make your module auto-update itself",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vdemedes/autoupdater.git"
+    "url": "git+https://github.com/toddtreece/autoupdater.git"
   },
   "keywords": [
     "auto-update",
@@ -17,10 +17,13 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vdemedes/autoupdater/issues"
+    "url": "https://github.com/toddtreece/autoupdater/issues"
   },
-  "homepage": "https://github.com/vdemedes/autoupdater#readme",
-  "author": "Vadim Demedes <vdemedes@gmail.com>",
+  "homepage": "https://github.com/toddtreece/autoupdater#readme",
+  "contributors": [
+    "Vadim Demedes <vdemedes@gmail.com>",
+    "Todd Treece <todd@uniontownlabs.org>"
+  ],
   "devDependencies": {
     "make-lint": "^1.0.1"
   },

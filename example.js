@@ -1,16 +1,10 @@
-'use strict';
+const AutoUpdate = require('./index');
 
-/**
- * Dependencies
- */
+// load package.json of the package
+// you want to be auto-updated
+let pkg = require('./package.json');
 
-var update = require('./');
+const update = new AutoUpdate(pkg);
 
-
-/**
- * Auto-update some module
- */
-
-var pkg = require('./package.json');
-
-update(pkg);
+// wait for update to finish
+update.on('finish', () => console.log('finished updating'));
