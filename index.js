@@ -2,7 +2,7 @@
 
 const UpdateNotifier = require('update-notifier'),
       EventEmitter = require('events'),
-      spawn = require('child_process').spawn;
+      exec = require('child_process').exec;
 
 class AutoUpdate extends EventEmitter {
 
@@ -41,22 +41,15 @@ class AutoUpdate extends EventEmitter {
       env: process.env
     };
 
-    const args = [
-      'install',
-      '--global',
-      this.pkg.name
-    ];
-
-    const npm = spawn(
-      'npm',
-      args,
+    const npm = exec(
+      `npm install -g ${this.pkg.name}`,
       options,
       this.onUpdate.bind(this)
     );
 
   }
 
-  onUpdate() {
+  onUpdate(err, stdout, stderr) {
 
     this.updating = false;
     this.emit('finish');
