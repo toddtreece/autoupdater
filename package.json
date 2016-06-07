@@ -1,6 +1,6 @@
 {
   "name": "cli-autoupdate",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Make your module auto-update itself",
   "main": "index.js",
   "scripts": {
